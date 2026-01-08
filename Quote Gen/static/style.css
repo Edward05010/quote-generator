@@ -1,0 +1,143 @@
+:root {
+    --bg-main: #12090b;
+    --bg-card: #1b0f12;
+    --bg-soft: #241417;
+
+    --text-main: #f5f5f5;
+    --text-muted: #b8aeb0;
+
+    --accent-gradient: linear-gradient(135deg, #ff6a5c, #c850c0, #4158d0);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle at top, #2a1418, var(--bg-main));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 760px;
+    padding: 40px;
+}
+
+.card {
+    background: linear-gradient(180deg, var(--bg-card), var(--bg-soft));
+    border-radius: 28px;
+    padding: 50px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    text-align: center;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 36px;
+}
+
+.quote {
+    font-size: 22px;
+    line-height: 1.55;
+    margin-bottom: 32px;
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.categories {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+}
+
+.cat {
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.07);
+    transition: all 0.2s ease;
+}
+
+.cat:hover {
+    background: rgba(255,255,255,0.15);
+}
+.cat:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
+.cat.active {
+    background: #ff3b3b; /* same bright red as button */
+    color: white;
+
+    box-shadow:
+        0 6px 16px rgba(255, 59, 59, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+
+    transform: translateY(-1px);
+}
+
+button {
+    padding: 14px 34px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+
+    background: #ff3b3b; /* bright red */
+    
+    box-shadow:
+        0 8px 20px rgba(255, 59, 59, 0.45),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #ff1f1f;
+
+    box-shadow:
+        0 12px 28px rgba(255, 59, 59, 0.65),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow:
+        0 6px 14px rgba(255, 59, 59, 0.4),
+        inset 0 2px 6px rgba(0,0,0,0.25);
+}

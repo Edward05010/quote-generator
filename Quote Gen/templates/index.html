@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Generator</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Global Theme CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="card">
+
+        <!-- Header -->
+        <div class="title">Quote Generator</div>
+        <div class="subtitle">
+            Choose a category • Use keyboard shortcuts • Space for new quote
+        </div>
+
+        <!-- Quote -->
+        <div class="quote">
+            “{{ quote }}”
+        </div>
+
+        <!-- Categories -->
+        <div class="categories">
+            <a id="cat-motivation"
+               href="/?category=motivation"
+               class="cat {% if selected_category == 'motivation' %}active{% endif %}">
+                Motivation <span style="opacity:.6;">[1]</span>
+            </a>
+
+            <a id="cat-discipline"
+               href="/?category=discipline"
+               class="cat {% if selected_category == 'discipline' %}active{% endif %}">
+                Discipline <span style="opacity:.6;">[2]</span>
+            </a>
+
+            <a id="cat-life"
+               href="/?category=life"
+               class="cat {% if selected_category == 'life' %}active{% endif %}">
+                Life <span style="opacity:.6;">[3]</span>
+            </a>
+
+            <a id="cat-hustle"
+               href="/?category=hustle"
+               class="cat {% if selected_category == 'hustle' %}active{% endif %}">
+                Hustle <span style="opacity:.6;">[4]</span>
+            </a>
+        </div>
+
+        <!-- Action -->
+        <form method="get">
+            <input type="hidden" name="category" value="{{ selected_category }}">
+            <button id="new-quote-btn" type="submit">
+                New Quote (Space)
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<!-- Keyboard Shortcuts -->
+<script>
+document.addEventListener("keydown", function (e) {
+
+    // Ignore typing contexts (future-safe)
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+        return;
+    }
+
+    switch (e.key) {
+        case "1":
+            document.getElementById("cat-motivation").click();
+            break;
+
+        case "2":
+            document.getElementById("cat-discipline").click();
+            break;
+
+        case "3":
+            document.getElementById("cat-life").click();
+            break;
+
+        case "4":
+            document.getElementById("cat-hustle").click();
+            break;
+
+        case " ":
+            e.preventDefault(); // stop scroll
+            document.getElementById("new-quote-btn").click();
+            break;
+    }
+});
+</script>
+
+</body>
+</html>
